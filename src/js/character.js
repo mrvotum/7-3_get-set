@@ -17,7 +17,7 @@ export default class Character {
       this.defence *= 2;
       this.powerMore = true;
     } else if (turn === true && this.powerModeUsed === true) {
-      throw TypeError('Повторно использовать powerMode нельзя!');
+      throw TypeError('powerMode уже был использован');
     }
   }
 
@@ -27,7 +27,7 @@ export default class Character {
     } else {
       this.powerMore = false; // powerMode выключается
       this.powerModeUsed = true; // включается защита от повторного использования
-      console.log(`это было всё, всем спасибо, расходимся`);
+      console.log(`Количество атак больше трёх, powerMode выключен`);
       this.health /= 2;
       this.attack /= 2;
       this.defence /= 2;

@@ -1,6 +1,6 @@
 import Character from '../src/js/character';
 
-test('', () => {
+test('Включение режима', () => {
   const input = new Character('Rick', 100, 10, 10);
 
   const expected = { // ожидает
@@ -14,9 +14,30 @@ test('', () => {
   expect({ attack, defence, health }).toEqual(expected); // сравнивает
 });
 
-// test('', () => {
-//   const input = 'Десять';
+test('Режим включен, но количество атак > 3', () => {
+  const input = new Character('Rick', 100, 10, 10);
 
-//   const received = () => convertToNumber(input); // получает ошибку
-//   expect(received).toThrow(); // ждёт ошибку
-// });
+  const expected = { // ожидает
+    attack: 10,
+    defence: 10,
+    health: 100,
+  };
+
+  input.powerMode = true; // включаем режим
+  input.attackFun();
+  input.attackFun();
+  input.attackFun();
+  input.attackFun();
+
+  const { attack, defence, health } = input; // получает
+  expect({ attack, defence, health }).toEqual(expected); // сравнивает
+});
+
+test('Попытка повторно использовать powerMode', () => {
+  const input = new Character('Rick', 100, 10, 10);
+
+  input.powerModeUsed = true;
+
+  const received = () => input.powerMode = true; // получает ошибку
+  expect(received).toThrow(); // ждёт ошибку
+});
