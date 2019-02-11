@@ -24,10 +24,10 @@ test('Режим включен, но количество атак > 3', () => 
   };
 
   input.powerMode = true; // включаем режим
-  input.attackFun();
-  input.attackFun();
-  input.attackFun();
-  input.attackFun();
+  input.toAttack();
+  input.toAttack();
+  input.toAttack();
+  input.toAttack();
 
   const { attack, defence, health } = input; // получает
   expect({ attack, defence, health }).toEqual(expected); // сравнивает
