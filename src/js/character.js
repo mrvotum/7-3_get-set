@@ -22,10 +22,6 @@ export default class Character {
     }
   }
 
-  get powerMode() {
-    return this.powerModeWork;
-  }
-
   toAttack() { // атаковать
     if (this.powerModeCount < 3) {
       this.powerModeCount += 1;
@@ -37,21 +33,21 @@ export default class Character {
   }
 
   get powerHealth() {
-    if (this.powerModeWork) {
+    if (this.powerModeWork === true) {
       return this.health * 2;
     }
     return this.health;
   }
 
   get powerAttack() {
-    if (this.powerModeWork) {
+    if (this.powerModeWork === true) {
       return this.attack * 2;
     }
     return this.attack;
   }
 
   get powerDefence() {
-    if (this.powerModeWork) {
+    if (this.powerModeWork === true) {
       return this.defence * 2;
     }
     return this.defence;
