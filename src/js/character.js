@@ -22,6 +22,10 @@ export default class Character {
     }
   }
 
+  get powerMode() { // срабатывает, когда атак больше 3-х
+    return this.powerModeWork;
+  }
+
   toAttack() { // атаковать
     if (this.powerModeCount < 3) {
       this.powerModeCount += 1;

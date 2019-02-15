@@ -68,3 +68,20 @@ test('Попытка повторно использовать powerMode', () =>
   const received = () => input.powerMode = true; // получает ошибку
   expect(received).toThrow(); // ждёт ошибку
 });
+
+test('Режим включен, количество атак > 3, проверка powerMode', () => {
+  const input = new Character('Rick', 100, 10, 10);
+
+  const expected = { // ожидает
+    powerMode: false,
+  };
+
+  input.powerMode = true; // включаем режим
+  input.toAttack();
+  input.toAttack();
+  input.toAttack();
+  input.toAttack();
+
+  const { powerMode } = input; // получает
+  expect({ powerMode }).toEqual(expected); // сравнивает
+});

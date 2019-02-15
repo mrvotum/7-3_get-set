@@ -8,3 +8,5 @@ player.powerMode = true;
 console.log(player);
 
 player.toAttack();
+player.toAttack();
+player.toAttack();
