@@ -2,9 +2,9 @@ export default class Character {
   constructor(name, health, attack, defence) {
     this.name = name;
     this.level = 1;
-    this.health = health;
-    this.attack = attack;
-    this.defence = defence;
+    this._health = health;
+    this._attack = attack;
+    this._defence = defence;
     this.powerModeUsed = false; // Использовался ли
     this.powerModeWork = false; // Активен ли режим прямо сейчас
     this.powerModeCount = 0;
@@ -32,24 +32,24 @@ export default class Character {
     }
   }
 
-  get powerHealth() {
+  get health() {
     if (this.powerModeWork === true) {
-      return this.health * 2;
+      return this._health * 2;
     }
-    return this.health;
+    return this._health;
   }
 
-  get powerAttack() {
+  get attack() {
     if (this.powerModeWork === true) {
-      return this.attack * 2;
+      return this._attack * 2;
     }
-    return this.attack;
+    return this._attack;
   }
 
-  get powerDefence() {
+  get defence() {
     if (this.powerModeWork === true) {
-      return this.defence * 2;
+      return this._defence * 2;
     }
-    return this.defence;
+    return this._defence;
   }
 }
