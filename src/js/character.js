@@ -12,13 +12,12 @@ export default class Character {
 
   set powerMode(turn) { // powerMode turn on/off (true/false)
     // turn ? this.powerModeWork = true : console.log(`powerMode не активен`);
-    if (turn === true) {
+    if (turn === true && this.powerModeUsed === true) { // если уже было использовано
+      throw TypeError('powerMode уже был использован');
+    } else if (turn === true) {
       this.powerModeWork = true;
     } else {
       console.log('powerMode не активен');
-    }
-    if (turn === true && this.powerModeUsed === true) { // если уже было использовано
-      throw TypeError('powerMode уже был использован');
     }
   }
 
